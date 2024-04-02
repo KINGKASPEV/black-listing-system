@@ -1,0 +1,247 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist/ISWBlacklist.csproj": {}
+  },
+  "projects": {
+    "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/ISWBlacklist.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/ISWBlacklist.Domain.csproj",
+        "projectName": "ISWBlacklist.Domain",
+        "projectPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/ISWBlacklist.Domain.csproj",
+        "packagesPath": "/Users/shopeyin5/.nuget/packages/",
+        "outputPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/shopeyin5/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/ISWBlacklist.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/ISWBlacklist.Infrastructure.csproj",
+        "projectName": "ISWBlacklist.Infrastructure",
+        "projectPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/ISWBlacklist.Infrastructure.csproj",
+        "packagesPath": "/Users/shopeyin5/.nuget/packages/",
+        "outputPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/shopeyin5/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/ISWBlacklist.Domain.csproj": {
+                "projectPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/ISWBlacklist.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist/ISWBlacklist.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist/ISWBlacklist.csproj",
+        "projectName": "ISWBlacklist",
+        "projectPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist/ISWBlacklist.csproj",
+        "packagesPath": "/Users/shopeyin5/.nuget/packages/",
+        "outputPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/shopeyin5/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/ISWBlacklist.Infrastructure.csproj": {
+                "projectPath": "/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Infrastructure/ISWBlacklist.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

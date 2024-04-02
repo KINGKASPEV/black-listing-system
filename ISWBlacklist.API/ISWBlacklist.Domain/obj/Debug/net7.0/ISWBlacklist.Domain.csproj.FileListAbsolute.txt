@@ -1,0 +1,13 @@
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/bin/Debug/net7.0/ISWBlacklist.Domain.deps.json
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/bin/Debug/net7.0/ISWBlacklist.Domain.dll
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/bin/Debug/net7.0/ISWBlacklist.Domain.pdb
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.csproj.AssemblyReference.cache
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.AssemblyInfoInputs.cache
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.AssemblyInfo.cs
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.csproj.CoreCompileInputs.cache
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.sourcelink.json
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.dll
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/refint/ISWBlacklist.Domain.dll
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ISWBlacklist.Domain.pdb
+/Users/shopeyin5/Desktop/Csharp NET/black-listing-system/ISWBlacklist.API/ISWBlacklist.Domain/obj/Debug/net7.0/ref/ISWBlacklist.Domain.dll

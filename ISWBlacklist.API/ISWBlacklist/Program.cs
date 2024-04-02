@@ -1,5 +1,7 @@
+// using ISWBlacklist.API.ISWBlacklist.Repositories;
 using ISWBlacklist.Extentions;
 using ISWBlacklist.Mapper;
+using ISWBlacklist.API.ISWBlacklist.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDependencies(builder.Configuration);
+
+builder.Services.AddScoped<IBookRepository, SQLBookRepository>();
+builder.Services.AddScoped<IUserRepository, SQLUserRepository>();
+
+
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 
 
