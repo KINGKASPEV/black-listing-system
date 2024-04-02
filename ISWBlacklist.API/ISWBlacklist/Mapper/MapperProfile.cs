@@ -6,7 +6,8 @@ namespace ISWBlacklist.Mapper
     {
         public MapperProfile()
         {
-
         }
     }
+
+   
 }
