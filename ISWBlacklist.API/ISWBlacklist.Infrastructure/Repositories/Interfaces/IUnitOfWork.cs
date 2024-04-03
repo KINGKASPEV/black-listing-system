@@ -3,7 +3,7 @@
     public interface IUnitOfWork : IDisposable
     {
         IBookRepository BookRepository { get; }
-        //IBlackListRepository BlackListRepository { get; }
+        IUserRepository UserRepository { get; }
         Task<int> SaveChangesAsync();
     }
 }

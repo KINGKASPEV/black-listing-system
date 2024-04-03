@@ -1,7 +1,7 @@
 ﻿using ISWBlacklist.Domain.Entities;
 using ISWBlacklist.Infrastructure.Context;
 using ISWBlacklist.Infrastructure.Repositories.Interfaces;
-using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace ISWBlacklist.Infrastructure.Repositories.Implementations
 {
@@ -9,24 +9,7 @@ namespace ISWBlacklist.Infrastructure.Repositories.Implementations
     {
         public BookRepository(BlackListDbContext dbContext) : base(dbContext) { }
 
-        public async Task AddBookAsync(Book book) => await AddAsync(book);
-
-        public async Task<List<Book>> FindBookAsync(Expression<Func<Book, bool>> condition) => await FindByConditionAsync(condition);
-
-        public async Task<Book> GetBookByIdAsync(string id) => await GetByIdAsync(id);
-
-        public async Task<List<Book>> GetAllBooksAsync() => await GetAllAsync();
-
-        public async Task UpdateBookAsync(Book book)
-        {
-            Update(book);
-            await SaveChangesAsync();
-        }
-
-        public async Task DeleteBookAsync(Book book)
-        {
-            Delete(book);
-            await SaveChangesAsync();
-        }
+        public async Task<List<Book>> GetBooksByAuthorAsync(string author) => await FindAsync(b => b.Author == author);
+        public async Task<List<Book>> SearchBooksAsync(string searchTerm) => await FindAsync(b => b.Title.Contains(searchTerm) || b.Author.Contains(searchTerm));
     }
 }

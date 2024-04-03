@@ -6,11 +6,12 @@ namespace ISWBlacklist.Infrastructure.Repositories.Interfaces
     {
         Task<T> GetByIdAsync(string id);
         Task<List<T>> GetAllAsync();
-        Task<List<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate);
+        Task<List<T>> FindAsync(Expression<Func<T, bool>> expression);
         Task AddAsync(T entity);
         void Update(T entity);
-        void Delete(T entity);
-        Task SaveChangesAsync();
-        Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate);
+        void DeleteAsync(T entity);
+        void DeleteAllAsync(List<T> entities);
+        void SaveChangesAsync();
+        Task<T> FindSingleAsync(Expression<Func<T, bool>> expression);
     }
 }

@@ -1,15 +1,10 @@
 ﻿using ISWBlacklist.Domain.Entities;
-using System.Linq.Expressions;
 
 namespace ISWBlacklist.Infrastructure.Repositories.Interfaces
 {
-    public interface IBookRepository
+    public interface IBookRepository : IGenericRepository<Book>
     {
-        Task<List<Book>> GetAllBooksAsync();
-        Task AddBookAsync(Book book);
-        Task DeleteBookAsync(Book book);
-        Task<List<Book>> FindBookAsync(Expression<Func<Book, bool>> condition);
-        Task<Book> GetBookByIdAsync(string id);
-        Task UpdateBookAsync(Book book);
+        Task<List<Book>> GetBooksByAuthorAsync(string author);
+        Task<List<Book>> SearchBooksAsync(string searchTerm);
     }
 }

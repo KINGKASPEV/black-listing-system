@@ -11,11 +11,11 @@ namespace ISWBlacklist.Infrastructure.Repositories.Implementations
         {
             _dbContext = dbContext;
             BookRepository = new BookRepository(_dbContext);
-            //BlackListRepository = new BlackListRepository(_dbContext);
+            UserRepository = new UserRepository(_dbContext);
         }
 
         public IBookRepository BookRepository { get; private set; }
-        //public IBlackListRepository BlackListRepository { get; private set; }
+        public IUserRepository UserRepository { get; private set; }
 
         public async Task<int> SaveChangesAsync() => await _dbContext.SaveChangesAsync();
 

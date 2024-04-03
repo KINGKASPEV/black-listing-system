@@ -10,6 +10,8 @@ namespace ISWBlacklist.Mapper
         {
             CreateMap<AddUserDto, AppUser>();
             CreateMap<AppUser, UserResponseDto>();
+            CreateMap<UpdateUserDto, AppUser>();
+            CreateMap<AppUser, UpdateUserResponseDto>();
         }
     }
 }
