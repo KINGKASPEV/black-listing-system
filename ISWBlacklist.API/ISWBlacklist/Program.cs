@@ -1,3 +1,4 @@
+using ISWBlacklist.Configurations;
 using ISWBlacklist.Extentions;
 using ISWBlacklist.Mapper;
 
@@ -12,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDependencies(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(MapperProfile));
+builder.Services.AddLoggingConfiguration(config);
+
 
 
 var app = builder.Build();

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ISWBlacklist.Application.DTOs.User;
+using ISWBlacklist.Domain.Entities;
 
 namespace ISWBlacklist.Mapper
 {
@@ -6,7 +8,8 @@ namespace ISWBlacklist.Mapper
     {
         public MapperProfile()
         {
-
+            CreateMap<AddUserDto, AppUser>();
+            CreateMap<AppUser, UserResponseDto>();
         }
     }
 }
