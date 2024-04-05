@@ -69,9 +69,7 @@ namespace ISWBlacklist.Application.Services
                 if (result.Succeeded)
                 {
                     _genericRepository.DeleteAsync(user);
-                    //_unitOfWork.UserRepository.DeleteAsync(user);
                      await _genericRepository.SaveChangesAsync();
-                    //await _unitOfWork.SaveChangesAsync();
                     return ApiResponse<bool>.Success(true, "User deleted successfully", 200);
                 }
                 else
