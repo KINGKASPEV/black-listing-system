@@ -11,7 +11,7 @@ namespace ISWBlacklist.Infrastructure.Repositories.Interfaces
         void Update(T entity);
         void DeleteAsync(T entity);
         void DeleteAllAsync(List<T> entities);
-        void SaveChangesAsync();
+        Task<int> SaveChangesAsync();
         Task<T> FindSingleAsync(Expression<Func<T, bool>> expression);
     }
 }

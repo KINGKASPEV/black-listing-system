@@ -12,16 +12,16 @@ namespace ISWBlacklist.Application.Services
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<UserService> _logger;
+        private readonly IGenericRepository<AppUser> _genericRepository;
 
-        public UserService(UserManager<AppUser> userManager, IUnitOfWork unitOfWork, IMapper mapper, ILogger<UserService> logger)
+        public UserService(UserManager<AppUser> userManager, IMapper mapper, ILogger<UserService> logger, IGenericRepository<AppUser> genericRepository)
         {
             _userManager = userManager;
-            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
+            _genericRepository = genericRepository;
         }
 
         public async Task<ApiResponse<UpdateUserResponseDto>> UpdateUserAsync(string userId, UpdateUserDto updateUserDto)
@@ -68,8 +68,8 @@ namespace ISWBlacklist.Application.Services
                 var result = await _userManager.DeleteAsync(user);
                 if (result.Succeeded)
                 {
-                    _unitOfWork.UserRepository.DeleteAsync(user);
-                    await _unitOfWork.SaveChangesAsync();
+                    _genericRepository.DeleteAsync(user);
+                     await _genericRepository.SaveChangesAsync();
                     return ApiResponse<bool>.Success(true, "User deleted successfully", 200);
                 }
                 else

@@ -13,11 +13,8 @@ namespace ISWBlacklist.Extentions
     {
         public static void AddDependencies(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IBookRepository, BookRepository>();
             services.AddDbContext<BlackListDbContext>(options =>
             options.UseSqlite(config.GetConnectionString("DefaultConnection")));
             services.AddIdentity<AppUser, IdentityRole>()
