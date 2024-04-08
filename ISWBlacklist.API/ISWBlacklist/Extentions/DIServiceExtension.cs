@@ -16,7 +16,7 @@ namespace ISWBlacklist.Extentions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddDbContext<BlackListDbContext>(options =>
-            options.UseSqlite(config.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddIdentity<AppUser, IdentityRole>()
             .AddEntityFrameworkStores<BlackListDbContext>()
             .AddDefaultTokenProviders();
