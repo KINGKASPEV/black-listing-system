@@ -1353,6 +1353,7 @@
           "AutoMapper": "13.0.1",
           "CloudinaryDotNet": "1.26.2",
           "ISWBlacklist.Common": "1.0.0",
+          "ISWBlacklist.Domain": "1.0.0",
           "ISWBlacklist.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "3.1.32",
           "Microsoft.AspNetCore.Identity": "2.1.39",

@@ -31,6 +31,9 @@
               "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
                 "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj"
               },
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
+              },
               "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
               }

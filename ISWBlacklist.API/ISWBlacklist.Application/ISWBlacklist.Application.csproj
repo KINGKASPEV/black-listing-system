@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ISWBlacklist.Common\ISWBlacklist.Common.csproj" />
+    <ProjectReference Include="..\ISWBlacklist.Domain\ISWBlacklist.Domain.csproj" />
     <ProjectReference Include="..\ISWBlacklist.Infrastructure\ISWBlacklist.Infrastructure.csproj" />
   </ItemGroup>
 
