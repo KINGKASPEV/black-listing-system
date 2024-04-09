@@ -1,22 +1,39 @@
-﻿using ISWBlacklist.Application.Services.Implementations;
-using ISWBlacklist.Application.Services.Interfaces;
-using ISWBlacklist.Infrastructure.Context;
-using ISWBlacklist.Infrastructure.Repositories.Implementations;
-using ISWBlacklist.Infrastructure.Repositories.Interfaces;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace ISWBlacklist.Configurations
 {
     public static class AuthenticationServiceExtension
     {
-        public static void AddAuthenticationServices(this IServiceCollection services, IConfiguration configuration)
+        public static void AuthenticationConfiguration(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            services.AddSingleton<IJwtTokenGeneratorService, JwtTokenGeneratorService>();
+            var secretKey = configuration.GetValue<string>("JwtSettings:Secret");
 
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            var tokenParameters = new TokenValidationParameters
+            {
+                ValidateAudience = true,
+                ValidateIssuer = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidAudience = configuration["JwtSettings:ValidAudience"],
+                ValidIssuer = configuration["JwtSettings:ValidIssuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                ClockSkew = TimeSpan.Zero
+            };
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            serviceCollection.AddSingleton(tokenParameters);
+            serviceCollection.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = tokenParameters;
+            });
         }
     }
 }

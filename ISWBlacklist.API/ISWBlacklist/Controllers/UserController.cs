@@ -1,10 +1,12 @@
 ﻿using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ISWBlacklist.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
+    [Authorize(Roles = "UserAdmin")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -15,20 +17,49 @@ namespace ISWBlacklist.Controllers
             _userService = userService;
         }
 
-        [HttpPost("update/{userId}")]
-        public async Task<IActionResult> UpdateUser(string userId, [FromBody] UpdateUserDto updateUserDto)
+        [HttpPost("create-user")]
+        public async Task<IActionResult> CreateUser(string userAdminId, [FromBody] CreateUserDto createUserDto)
         {
-            var response = await _userService.UpdateUserAsync(userId, updateUserDto);
-            if (response.Succeeded) return Ok(response);
+            var response = await _userService.CreateUserAsync(userAdminId, createUserDto);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
             return BadRequest(response);
         }
 
-        [HttpPost("delete/{userId}")]
+        [HttpPut("update-user/{userId}")]
+        public async Task<IActionResult> UpdateUser(string userId, [FromBody] UpdateUserDto updateUserDto)
+        {
+            var response = await _userService.UpdateUserAsync(userId, updateUserDto);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpDelete("delete-user/{userId}")]
         public async Task<IActionResult> DeleteUser(string userId)
         {
             var response = await _userService.DeleteUserAsync(userId);
-            if (response.Succeeded) return Ok(response);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
             return BadRequest(response);
         }
+
+        [HttpGet("get-all-users")]
+        public async Task<IActionResult> GetAllUsers(int perPage, int page)
+        {
+            var response = await _userService.GetAllUsersAsync(perPage, page);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
     }
 }
