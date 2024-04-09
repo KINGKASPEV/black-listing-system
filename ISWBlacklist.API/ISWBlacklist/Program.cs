@@ -16,7 +16,7 @@ builder.Services.AddDependencies(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddLoggingConfiguration(config);
 builder.Services.AuthenticationConfiguration(config);
-//builder.Services.AddSwagger();
+builder.Services.AddSwagger();
 
 var app = builder.Build();
 
