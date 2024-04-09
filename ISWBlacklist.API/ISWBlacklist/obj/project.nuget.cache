@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TBDDz++Q09AyRq2IULcewVFLrZ/Go0OJh5xzoyySGgQQP5be0+eR+qa4g989STCNHA0earqZ6HN4cvcohZYMUQ==",
+  "dgSpecHash": "wY12VDLvm7ovLJHPhWe7CMtgyYRDL05XhM+IHB9ylNQ0PkWsUruMGaEwUvFGQFXPdIHak6tguq/vGet4gFetfQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj",
   "expectedPackageFiles": [
@@ -150,5 +150,12 @@
     "C:\\Users\\user\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

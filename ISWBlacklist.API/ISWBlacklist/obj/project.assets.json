@@ -2548,7 +2548,9 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "AutoMapper": "13.0.1",
+          "CloudinaryDotNet": "1.26.2",
           "ISWBlacklist.Common": "1.0.0",
+          "ISWBlacklist.Domain": "1.0.0",
           "ISWBlacklist.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "3.1.32",
           "Microsoft.AspNetCore.Identity": "2.1.39",
@@ -7309,5 +7311,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
