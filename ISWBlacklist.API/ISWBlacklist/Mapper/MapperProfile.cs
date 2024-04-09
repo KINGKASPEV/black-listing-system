@@ -8,7 +8,7 @@ namespace ISWBlacklist.Mapper
     {
         public MapperProfile()
         {
-            CreateMap<AddUserDto, AppUser>();
+            CreateMap<AppUserLoginDto, AppUser>();
             CreateMap<AppUser, UserResponseDto>();
             CreateMap<UpdateUserDto, AppUser>();
             CreateMap<AppUser, UpdateUserResponseDto>();

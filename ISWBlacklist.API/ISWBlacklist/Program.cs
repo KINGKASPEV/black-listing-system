@@ -1,13 +1,7 @@
-using ISWBlacklist.Application.Services.Implementations;
-using ISWBlacklist.Application.Services.Interfaces;
+using ISWBlacklist.Common.Utilities;
 using ISWBlacklist.Configurations;
-using ISWBlacklist.Domain.Entities;
 using ISWBlacklist.Extentions;
-using ISWBlacklist.Infrastructure.Context;
-using ISWBlacklist.Infrastructure.Repositories.Implementations;
-using ISWBlacklist.Infrastructure.Repositories.Interfaces;
 using ISWBlacklist.Mapper;
-using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,13 +12,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAuthenticationServices(config);
-
-
 builder.Services.AddDependencies(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(MapperProfile));
 builder.Services.AddLoggingConfiguration(config);
-
+builder.Services.AuthenticationConfiguration(config);
+//builder.Services.AddSwagger();
 
 var app = builder.Build();
 
@@ -33,13 +25,22 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ISBWBlacklist v1"));
 }
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    await Seeder.SeedRolesAndAdmins(serviceProvider);
+}
+
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
