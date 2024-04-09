@@ -11,6 +11,5 @@ namespace ISWBlacklist.Domain.Entities
         public DateTime? ResetTokenExpires { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
         public DateTime DateModified { get; set; }
-        public ICollection<Book> Book { get; set; }
     }
 }
