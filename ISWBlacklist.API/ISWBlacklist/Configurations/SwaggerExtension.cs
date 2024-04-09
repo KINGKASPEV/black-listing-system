@@ -1,6 +1,6 @@
 ﻿namespace ISWBlacklist.Configurations
 {
-    public class MailServiceExtension
+    public class SwaggerExtension
     {
     }
 }
