@@ -9,6 +9,7 @@ namespace ISWBlacklist.Application.Services.Interfaces
         Task<ApiResponse<BlacklistedItemResponseDto>> BlacklistItemAsync(string itemId, string reason);
         Task<ApiResponse<BlacklistedItemResponseDto>> GetBlacklistedItemByIdAsync(string itemId);
         Task<ApiResponse<PageResult<IEnumerable<BlacklistedItemResponseDto>>>> GetBlacklistedItemsAsync(int page, int perPage);
+        Task<ApiResponse<IEnumerable<BlacklistedItemResponseDto>>> GetBlacklistedItemsAsync();
         Task<ApiResponse<string>> RemoveBlacklistedItemAsync(string itemId, string removalReason);
         Task<ApiResponse<string>> UpdateBlacklistedItemAsync(string itemId, string reason);
     }
