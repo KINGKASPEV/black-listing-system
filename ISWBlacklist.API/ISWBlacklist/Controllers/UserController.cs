@@ -17,7 +17,7 @@ namespace ISWBlacklist.Controllers
             _userService = userService;
         }
 
-        [HttpPost("create-user")]
+        [HttpPost]
         public async Task<IActionResult> CreateUser(string userAdminId, [FromBody] CreateUserDto createUserDto)
         {
             var response = await _userService.CreateUserAsync(userAdminId, createUserDto);
@@ -28,7 +28,7 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpPut("update-user/{userId}")]
+        [HttpPut]
         public async Task<IActionResult> UpdateUser(string userId, [FromBody] UpdateUserDto updateUserDto)
         {
             var response = await _userService.UpdateUserAsync(userId, updateUserDto);
@@ -39,7 +39,40 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpDelete("delete-user/{userId}")]
+        [HttpGet("userId")]
+        public async Task<IActionResult> GetUser(string userId)
+        {
+            var response = await _userService.GetUserByIdAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers(int page, int perPage)
+        {
+            var response = await _userService.GetAllUsersAsync(page, perPage);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var response = await _userService.GetAllUsersAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpDelete]
         public async Task<IActionResult> DeleteUser(string userId)
         {
             var response = await _userService.DeleteUserAsync(userId);
@@ -49,17 +82,5 @@ namespace ISWBlacklist.Controllers
             }
             return BadRequest(response);
         }
-
-        [HttpGet("get-all-users")]
-        public async Task<IActionResult> GetAllUsers(int perPage, int page)
-        {
-            var response = await _userService.GetAllUsersAsync(perPage, page);
-            if (response.Succeeded)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
-        }
-
     }
 }

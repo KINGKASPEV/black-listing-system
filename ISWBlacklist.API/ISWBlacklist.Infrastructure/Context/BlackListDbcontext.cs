@@ -8,23 +8,15 @@ namespace ISWBlacklist.Infrastructure.Context
     {
         public BlackListDbContext(DbContextOptions<BlackListDbContext> options) : base(options) { }
 
-        public DbSet<Book> Books { get; set; }
-        public DbSet<BookCategory> BookCategories { get; set; }
+        public DbSet<Item> Items { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configure entity relationships
-            modelBuilder.Entity<Book>()
-                .HasOne(b => b.User)
-                .WithMany(u => u.Book)
-                .HasForeignKey(b => b.UserId);
-
-            modelBuilder.Entity<Book>()
-                .HasOne(b => b.Category)
-                .WithMany(c => c.Books)
-                .HasForeignKey(b => b.CategoryId);
+            modelBuilder.Entity<Item>()
+                .Property(item => item.Price)
+                .HasColumnType("decimal(18, 2)");
         }
     }
 }

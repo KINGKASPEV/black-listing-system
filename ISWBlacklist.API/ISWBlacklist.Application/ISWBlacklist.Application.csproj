@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.39" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.18">
@@ -20,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ISWBlacklist.Common\ISWBlacklist.Common.csproj" />
+    <ProjectReference Include="..\ISWBlacklist.Domain\ISWBlacklist.Domain.csproj" />
     <ProjectReference Include="..\ISWBlacklist.Infrastructure\ISWBlacklist.Infrastructure.csproj" />
   </ItemGroup>
 

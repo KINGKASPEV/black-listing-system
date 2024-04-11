@@ -78,7 +78,6 @@ namespace ISWBlacklist.Application.Services.Implementations
                 switch (result)
                 {
                     case { Succeeded: true }:
-                        var role = (await _userManager.GetRolesAsync(user)).First();
                         var jwtSettings = _config.GetSection("JwtSettings");
                         var jwtService = new JwtService(
                             jwtSettings["Secret"],
@@ -86,8 +85,15 @@ namespace ISWBlacklist.Application.Services.Implementations
                             jwtSettings["ValidAudience"]);
 
                         var roles = await _userManager.GetRolesAsync(user);
+                        var userRoles = await Task.WhenAll(roles.Select(roleName => _roleManager.FindByNameAsync(roleName)));
+
                         var response = new LoginResponseDto
                         {
+                            Id = user.Id,
+                            Email = user.Email,
+                            FirstName = user.FirstName,
+                            LastName = user.LastName,
+                            UserRole = userRoles.FirstOrDefault()?.Name,
                             JWToken = jwtService.GenerateToken(user.Id, user.Email, roles.ToArray())
                         };
                         return ApiResponse<LoginResponseDto>.Success(response, "Logged In Successfully", StatusCodes.Status200OK);

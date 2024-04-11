@@ -23,5 +23,6 @@ namespace ISWBlacklist.Application.DTOs.User
 
         [Phone(ErrorMessage = "Invalid phone number")]
         public string PhoneNumber { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

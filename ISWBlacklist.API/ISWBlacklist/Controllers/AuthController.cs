@@ -87,7 +87,6 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpPost("logout")]
-        [Authorize]
         public async Task<IActionResult> Logout()
         {
             var response = await _authenticationService.LogoutAsync();

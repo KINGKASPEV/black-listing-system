@@ -31,6 +31,9 @@
               "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
                 "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj"
               },
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
+              },
               "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
               }
@@ -50,6 +53,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
             },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
@@ -274,10 +281,6 @@
               "target": "Package",
               "version": "[7.0.17, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[7.0.17, )"
-            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -351,6 +354,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
