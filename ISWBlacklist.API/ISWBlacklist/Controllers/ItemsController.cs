@@ -61,10 +61,21 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpGet("non-blacklisted-items")]
+        [HttpGet("non-blacklisted-items-paginated")]
         public async Task<IActionResult> GetItemsNotBlacklisted([FromQuery] int page, [FromQuery] int perPage)
         {
             var response = await _itemService.GetNonBlacklistedItemsAsync(page, perPage);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("non-blacklisted-items")]
+        public async Task<IActionResult> GetItemsNotBlacklisted()
+        {
+            var response = await _itemService.GetNonBlacklistedItemsAsync();
             if (response.Succeeded)
             {
                 return Ok(response);
