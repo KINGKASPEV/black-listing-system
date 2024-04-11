@@ -65,7 +65,11 @@ namespace ISWBlacklist.Application.Services.Implementations
                     return ApiResponse<UserResponseDto>.Failed(false, "Failed to assign role to the user.", StatusCodes.Status400BadRequest, errors);
                 }
 
+                var roles = await _userManager.GetRolesAsync(newUser);
                 var userResponse = _mapper.Map<UserResponseDto>(newUser);
+                userResponse.Role = roles.FirstOrDefault();
+
+                //var userResponse = _mapper.Map<UserResponseDto>(newUser);
 
                 return ApiResponse<UserResponseDto>.Success(userResponse, $"User created successfully with the role: {roleName}", StatusCodes.Status200OK);
             }

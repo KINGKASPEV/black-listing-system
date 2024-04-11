@@ -13,6 +13,10 @@ namespace ISWBlacklist.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Item>()
+                .Property(item => item.Price)
+                .HasColumnType("decimal(18, 2)");
         }
     }
 }

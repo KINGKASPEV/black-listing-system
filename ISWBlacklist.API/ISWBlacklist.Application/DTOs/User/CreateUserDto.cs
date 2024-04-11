@@ -9,6 +9,6 @@ namespace ISWBlacklist.Application.DTOs.User
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Role is required")]
-        public UserRole Role { get; set; }
+        public string Role { get; set; }
     }
 }
