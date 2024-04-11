@@ -39,10 +39,32 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpGet]
+        [HttpGet("all-items-paginated")]
         public async Task<IActionResult> GetItems([FromQuery] int page, [FromQuery] int perPage)
         {
             var response = await _itemService.GetAllItemsAsync(page, perPage);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("all-items")]
+        public async Task<IActionResult> GetItems()
+        {
+            var response = await _itemService.GetAllItemsAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("non-blacklisted-items")]
+        public async Task<IActionResult> GetItemsNotBlacklisted([FromQuery] int page, [FromQuery] int perPage)
+        {
+            var response = await _itemService.GetNonBlacklistedItemsAsync(page, perPage);
             if (response.Succeeded)
             {
                 return Ok(response);

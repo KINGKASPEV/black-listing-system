@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ISWBlacklist.Application.DTOs.BlacklistedItem;
+using ISWBlacklist.Application.DTOs.Item;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Common;
 using ISWBlacklist.Common.Utilities;
@@ -96,7 +97,6 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<PageResult<IEnumerable<BlacklistedItemResponseDto>>>.Failed(false, "An error occurred while getting blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
-
 
         public async Task<ApiResponse<string>> RemoveBlacklistedItemAsync(string itemId, string removalReason)
         {

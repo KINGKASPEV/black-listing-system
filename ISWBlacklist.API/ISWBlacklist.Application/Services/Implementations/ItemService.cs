@@ -87,6 +87,46 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
+        public async Task<ApiResponse<IEnumerable<ItemResponseDto>>> GetAllItemsAsync()
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+
+                var itemDtos = items.Select(item => _mapper.Map<ItemResponseDto>(item)).ToList();
+
+                return ApiResponse<IEnumerable<ItemResponseDto>>.Success(itemDtos, "Items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving items: {ex.Message}");
+                return ApiResponse<IEnumerable<ItemResponseDto>>.Failed(false, "An error occurred while retrieving items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+
+        public async Task<ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>> GetNonBlacklistedItemsAsync(int page, int perPage)
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+
+                var nonBlacklistedItems = items.Where(item => !item.IsBlacklisted);
+
+                var itemDtos = nonBlacklistedItems.Select(item => _mapper.Map<ItemResponseDto>(item)).ToList();
+
+                var paginatedItems = await Pagination<ItemResponseDto>.GetPager(itemDtos, perPage, page,
+                    item => item.Name, item => item.Id);
+
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Success(paginatedItems, "Non-blacklisted items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving non-blacklisted items: {ex.Message}");
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Failed(false, "An error occurred while retrieving non-blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
         public async Task<ApiResponse<string>> UpdateItemAsync(string itemId, ItemUpdateDto updateDto)
         {
             try
