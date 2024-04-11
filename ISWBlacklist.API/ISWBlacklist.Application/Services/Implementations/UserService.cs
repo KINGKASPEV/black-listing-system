@@ -112,7 +112,14 @@ namespace ISWBlacklist.Application.Services.Implementations
             {
                 var allUsers = await _userRepository.GetAllAsync();
 
-                var userDtos = _mapper.Map<IEnumerable<UserResponseDto>>(allUsers);
+                var userDtos = new List<UserResponseDto>();
+                foreach (var user in allUsers)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var userDto = _mapper.Map<UserResponseDto>(user);
+                    userDto.Role = roles.FirstOrDefault();
+                    userDtos.Add(userDto);
+                }
 
                 var paginatedUsers = await Pagination<UserResponseDto>.GetPager(userDtos, perPage, page,
                     user => user.Email, user => user.Id);
@@ -123,6 +130,30 @@ namespace ISWBlacklist.Application.Services.Implementations
             {
                 _logger.LogError($"An error occurred while retrieving users: {ex.Message}");
                 return ApiResponse<PageResult<IEnumerable<UserResponseDto>>>.Failed(false, "An error occurred while retrieving users", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+        public async Task<ApiResponse<IEnumerable<UserResponseDto>>> GetAllUsersAsync()
+        {
+            try
+            {
+                var allUsers = await _userRepository.GetAllAsync();
+
+                var userDtos = new List<UserResponseDto>();
+                foreach (var user in allUsers)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var userDto = _mapper.Map<UserResponseDto>(user);
+                    userDto.Role = roles.FirstOrDefault();
+                    userDtos.Add(userDto);
+                }
+
+                return ApiResponse<IEnumerable<UserResponseDto>>.Success(userDtos, "Users retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving users: {ex.Message}");
+                return ApiResponse<IEnumerable<UserResponseDto>>.Failed(false, "An error occurred while retrieving users", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
 

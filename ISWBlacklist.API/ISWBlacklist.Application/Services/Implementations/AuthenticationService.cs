@@ -84,7 +84,6 @@ namespace ISWBlacklist.Application.Services.Implementations
                             jwtSettings["ValidIssuer"],
                             jwtSettings["ValidAudience"]);
 
-                        // Fetch roles using RoleManager
                         var roles = await _userManager.GetRolesAsync(user);
                         var userRoles = await Task.WhenAll(roles.Select(roleName => _roleManager.FindByNameAsync(roleName)));
 
@@ -94,7 +93,7 @@ namespace ISWBlacklist.Application.Services.Implementations
                             Email = user.Email,
                             FirstName = user.FirstName,
                             LastName = user.LastName,
-                            UserRole = userRoles.FirstOrDefault()?.Name, // Assuming UserRole is a string property in LoginResponseDto
+                            UserRole = userRoles.FirstOrDefault()?.Name,
                             JWToken = jwtService.GenerateToken(user.Id, user.Email, roles.ToArray())
                         };
                         return ApiResponse<LoginResponseDto>.Success(response, "Logged In Successfully", StatusCodes.Status200OK);
@@ -109,8 +108,6 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<LoginResponseDto>.Failed(false, "Some error occurred while logging in." + ex.Message, StatusCodes.Status500InternalServerError, new List<string>() { ex.Message });
             }
         }
-
-
 
         public async Task<ApiResponse<string>> ValidateTokenAsync(string token)
         {

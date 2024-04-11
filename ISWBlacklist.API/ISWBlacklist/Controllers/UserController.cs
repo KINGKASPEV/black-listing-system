@@ -51,9 +51,9 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers(int perPage, int page)
+        public async Task<IActionResult> GetAllUsers(int page, int perPage)
         {
-            var response = await _userService.GetAllUsersAsync(perPage, page);
+            var response = await _userService.GetAllUsersAsync(page, perPage);
             if (response.Succeeded)
             {
                 return Ok(response);
@@ -61,5 +61,15 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var response = await _userService.GetAllUsersAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
     }
 }
