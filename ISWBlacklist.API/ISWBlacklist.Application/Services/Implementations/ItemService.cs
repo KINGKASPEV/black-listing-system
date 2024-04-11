@@ -81,7 +81,7 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Success(paginatedItems, "Items retrieved successfully", StatusCodes.Status200OK);
             }
             catch (Exception ex)
-            {
+        {
                 _logger.LogError($"An error occurred while retrieving items: {ex.Message}");
                 return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Failed(false, "An error occurred while retrieving items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }

@@ -69,6 +69,8 @@ namespace ISWBlacklist.Application.Services.Implementations
                 var userResponse = _mapper.Map<UserResponseDto>(newUser);
                 userResponse.Role = roles.FirstOrDefault();
 
+                //var userResponse = _mapper.Map<UserResponseDto>(newUser);
+
                 return ApiResponse<UserResponseDto>.Success(userResponse, $"User created successfully with the role: {roleName}", StatusCodes.Status200OK);
             }
             catch (Exception ex)
