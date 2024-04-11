@@ -158,29 +158,61 @@ namespace ISWBlacklist.Application.Services.Implementations
         }
 
 
+        //public async Task<ApiResponse<bool>> DeleteUserAsync(string id)
+        //{
+        //    var user = await _userManager.FindByIdAsync(id);
+        //    if (user == null)
+        //    {
+        //        return ApiResponse<bool>.Failed(false, "User not found", 400, new List<string>());
+        //    }
+        //    else
+        //    {
+        //        var result = await _userManager.DeleteAsync(user);
+        //        if (result.Succeeded)
+        //        {
+        //            _userRepository.DeleteAsync(user);
+        //            await _userRepository.SaveChangesAsync();
+        //            return ApiResponse<bool>.Success(true, "User deleted successfully", 200);
+        //        }
+        //        else
+        //        {
+        //            var errors = result.Errors.Select(error => error.Description).ToList();
+        //            return ApiResponse<bool>.Failed(false, "Failed to delete user", 400, errors);
+        //        }
+        //    }
+        //}
+
+        //public async Task<ApiResponse<bool>> DeleteUserAsync(string id)
+        //{
+        //    var user = await _userManager.FindByIdAsync(id);
+        //    if (user == null)
+        //    {
+        //        return ApiResponse<bool>.Failed(false, "User not found", StatusCodes.Status404NotFound, new List<string>());
+        //    }
+
+        //    var result = await _userManager.DeleteAsync(user);
+        //    if (!result.Succeeded)
+        //    {
+        //        var errors = result.Errors.Select(error => error.Description).ToList();
+        //        return ApiResponse<bool>.Failed(false, "Failed to delete user", StatusCodes.Status400BadRequest, errors);
+        //    }
+
+        //    _userRepository.DeleteAsync(user);
+        //    await _userRepository.SaveChangesAsync();
+
+        //    return ApiResponse<bool>.Success(true, "User deleted successfully", StatusCodes.Status200OK);
+        //}
+
         public async Task<ApiResponse<bool>> DeleteUserAsync(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
-            {
-                return ApiResponse<bool>.Failed(false, "User not found", 400, new List<string>());
-            }
-            else
-            {
-                var result = await _userManager.DeleteAsync(user);
-                if (result.Succeeded)
-                {
-                    _userRepository.DeleteAsync(user);
-                    await _userRepository.SaveChangesAsync();
-                    return ApiResponse<bool>.Success(true, "User deleted successfully", 200);
-                }
-                else
-                {
-                    var errors = result.Errors.Select(error => error.Description).ToList();
-                    return ApiResponse<bool>.Failed(false, "Failed to delete user", 400, errors);
-                }
-            }
-        }
+            
+                return ApiResponse<bool>.Failed(false, "User not found", StatusCodes.Status404NotFound, new List<string>());
 
+                  _userRepository.DeleteAsync(user);
+               await _userRepository.SaveChangesAsync();
+            return ApiResponse<bool>.Success(true, "User deleted successfully", StatusCodes.Status200OK);            
+        }
     }
 }
