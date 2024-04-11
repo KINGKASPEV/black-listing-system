@@ -7,7 +7,6 @@ using ISWBlacklist.Domain;
 using ISWBlacklist.Domain.Entities;
 using ISWBlacklist.Infrastructure.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
 namespace ISWBlacklist.Application.Services.Implementations
@@ -94,6 +93,23 @@ namespace ISWBlacklist.Application.Services.Implementations
             {
                 _logger.LogError($"An error occurred while getting blacklisted items: {ex.Message}");
                 return ApiResponse<PageResult<IEnumerable<BlacklistedItemResponseDto>>>.Failed(false, "An error occurred while getting blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+        public async Task<ApiResponse<IEnumerable<BlacklistedItemResponseDto>>> GetBlacklistedItemsAsync()
+        {
+            try
+            {
+                var blacklistedItems = await _itemRepository.FindAsync(item => item.IsBlacklisted);
+
+                var blacklistedItemDtos = _mapper.Map<IEnumerable<BlacklistedItemResponseDto>>(blacklistedItems);
+
+                return ApiResponse<IEnumerable<BlacklistedItemResponseDto>>.Success(blacklistedItemDtos, "Blacklisted items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while getting blacklisted items: {ex.Message}");
+                return ApiResponse<IEnumerable<BlacklistedItemResponseDto>>.Failed(false, "An error occurred while getting blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
 

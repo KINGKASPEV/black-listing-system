@@ -2,6 +2,7 @@
 using ISWBlacklist.Application.DTOs.Item;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Common;
+using ISWBlacklist.Common.Utilities;
 using ISWBlacklist.Domain;
 using ISWBlacklist.Domain.Entities;
 using ISWBlacklist.Infrastructure.Repositories.Interfaces;
@@ -61,15 +62,40 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
-        public async Task<ApiResponse<IEnumerable<ItemResponseDto>>> GetAllItemsAsync(int page, int perPage)
+        public async Task<ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>> GetAllItemsAsync(int page, int perPage)
         {
             try
             {
                 var items = await _itemRepository.GetAllAsync();
-                var pagedResult = await Pagination<Item>.GetPager(items, perPage, page, item => item.Name, item => item.Id);
 
-                var responseDto = _mapper.Map<IEnumerable<ItemResponseDto>>(pagedResult.Data);
-                return ApiResponse<IEnumerable<ItemResponseDto>>.Success(responseDto, "Items retrieved successfully", StatusCodes.Status200OK);
+                var itemDtos = new List<ItemResponseDto>();
+                foreach (var item in items)
+                {
+                    var itemDto = _mapper.Map<ItemResponseDto>(item);
+                    itemDtos.Add(itemDto);
+                }
+
+                var paginatedItems = await Pagination<ItemResponseDto>.GetPager(itemDtos, perPage, page,
+                    item => item.Name, item => item.Id);
+
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Success(paginatedItems, "Items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+        {
+                _logger.LogError($"An error occurred while retrieving items: {ex.Message}");
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Failed(false, "An error occurred while retrieving items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+        public async Task<ApiResponse<IEnumerable<ItemResponseDto>>> GetAllItemsAsync()
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+
+                var itemDtos = items.Select(item => _mapper.Map<ItemResponseDto>(item)).ToList();
+
+                return ApiResponse<IEnumerable<ItemResponseDto>>.Success(itemDtos, "Items retrieved successfully", StatusCodes.Status200OK);
             }
             catch (Exception ex)
             {
@@ -77,6 +103,49 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<IEnumerable<ItemResponseDto>>.Failed(false, "An error occurred while retrieving items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
+
+
+        public async Task<ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>> GetNonBlacklistedItemsAsync(int page, int perPage)
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+
+                var nonBlacklistedItems = items.Where(item => !item.IsBlacklisted);
+
+                var itemDtos = nonBlacklistedItems.Select(item => _mapper.Map<ItemResponseDto>(item)).ToList();
+
+                var paginatedItems = await Pagination<ItemResponseDto>.GetPager(itemDtos, perPage, page,
+                    item => item.Name, item => item.Id);
+
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Success(paginatedItems, "Non-blacklisted items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving non-blacklisted items: {ex.Message}");
+                return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Failed(false, "An error occurred while retrieving non-blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+        public async Task<ApiResponse<IEnumerable<ItemResponseDto>>> GetNonBlacklistedItemsAsync()
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+
+                var nonBlacklistedItems = items.Where(item => !item.IsBlacklisted);
+
+                var itemDtos = nonBlacklistedItems.Select(item => _mapper.Map<ItemResponseDto>(item)).ToList();
+
+                return ApiResponse<IEnumerable<ItemResponseDto>>.Success(itemDtos, "Non-blacklisted items retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving non-blacklisted items: {ex.Message}");
+                return ApiResponse<IEnumerable<ItemResponseDto>>.Failed(false, "An error occurred while retrieving non-blacklisted items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
 
         public async Task<ApiResponse<string>> UpdateItemAsync(string itemId, ItemUpdateDto updateDto)
         {

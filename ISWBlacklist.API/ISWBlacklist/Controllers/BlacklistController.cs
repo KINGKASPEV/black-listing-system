@@ -49,6 +49,17 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
+        [HttpGet("blacklisted-items-not-paginated")]
+        public async Task<IActionResult> GetBlacklistedItems()
+        {
+            var response = await _blacklistService.GetBlacklistedItemsAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
         [HttpDelete]
         public async Task<IActionResult> RemoveBlacklistedItem([FromRoute] string blacklistedItemId, [FromBody] string removalReason)
         {
