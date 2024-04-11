@@ -63,6 +63,9 @@ namespace ISWBlacklist.Application.Services.Implementations
                 if (item == null)
                     return ApiResponse<BlacklistedItemResponseDto>.Failed(false, "Item not found.", StatusCodes.Status404NotFound, new List<string>());
 
+                if (!item.IsBlacklisted)
+                    return ApiResponse<BlacklistedItemResponseDto>.Failed(false, "Item not blacklisted.", StatusCodes.Status400BadRequest, new List<string>());
+
                 var responseDto = _mapper.Map<BlacklistedItemResponseDto>(item);
                 return ApiResponse<BlacklistedItemResponseDto>.Success(responseDto, "Blacklisted item found", StatusCodes.Status200OK);
             }
@@ -72,6 +75,7 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<BlacklistedItemResponseDto>.Failed(false, "An error occurred while getting blacklisted item", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
+
 
         public async Task<ApiResponse<PageResult<IEnumerable<BlacklistedItemResponseDto>>>> GetBlacklistedItemsAsync(int page, int perPage)
         {

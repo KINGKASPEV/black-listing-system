@@ -39,6 +39,39 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
+        [HttpGet("userId")]
+        public async Task<IActionResult> GetUser(string userId)
+        {
+            var response = await _userService.GetUserByIdAsync(userId);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers(int page, int perPage)
+        {
+            var response = await _userService.GetAllUsersAsync(page, perPage);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpGet("get-all")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var response = await _userService.GetAllUsersAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
         [HttpDelete]
         public async Task<IActionResult> DeleteUser(string userId)
         {
@@ -49,17 +82,5 @@ namespace ISWBlacklist.Controllers
             }
             return BadRequest(response);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllUsers(int perPage, int page)
-        {
-            var response = await _userService.GetAllUsersAsync(perPage, page);
-            if (response.Succeeded)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response);
-        }
-
     }
 }

@@ -7,6 +7,6 @@
         public DateTime CreatedAt { get; set; }
         public string ImageUrl { get; set; }
         public DateTime DateModified { get; set; }
-        public UserRole Role { get; set; }
+        public string Role { get; set; }
     }
 }

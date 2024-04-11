@@ -106,13 +106,44 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
+        public async Task<ApiResponse<UserResponseDto>> GetUserByIdAsync(string userId)
+        {
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(userId);
+                if (user == null)
+                {
+                    return ApiResponse<UserResponseDto>.Failed(false, "User not found", StatusCodes.Status404NotFound, new List<string>());
+                }
+
+                var roles = await _userManager.GetRolesAsync(user);
+                var userDto = _mapper.Map<UserResponseDto>(user);
+                userDto.Role = roles.FirstOrDefault();
+
+                return ApiResponse<UserResponseDto>.Success(userDto, "User retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving user: {ex.Message}");
+                return ApiResponse<UserResponseDto>.Failed(false, "An error occurred while retrieving user", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+
         public async Task<ApiResponse<PageResult<IEnumerable<UserResponseDto>>>> GetAllUsersAsync(int page, int perPage)
         {
             try
             {
                 var allUsers = await _userRepository.GetAllAsync();
 
-                var userDtos = _mapper.Map<IEnumerable<UserResponseDto>>(allUsers);
+                var userDtos = new List<UserResponseDto>();
+                foreach (var user in allUsers)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var userDto = _mapper.Map<UserResponseDto>(user);
+                    userDto.Role = roles.FirstOrDefault();
+                    userDtos.Add(userDto);
+                }
 
                 var paginatedUsers = await Pagination<UserResponseDto>.GetPager(userDtos, perPage, page,
                     user => user.Email, user => user.Id);
@@ -126,30 +157,40 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
-
-        public async Task<ApiResponse<bool>> DeleteUserAsync(string id)
+        public async Task<ApiResponse<IEnumerable<UserResponseDto>>> GetAllUsersAsync()
         {
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
+            try
             {
-                return ApiResponse<bool>.Failed(false, "User not found", 400, new List<string>());
+                var allUsers = await _userRepository.GetAllAsync();
+
+                var userDtos = new List<UserResponseDto>();
+                foreach (var user in allUsers)
+                {
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var userDto = _mapper.Map<UserResponseDto>(user);
+                    userDto.Role = roles.FirstOrDefault();
+                    userDtos.Add(userDto);
+                }
+
+                return ApiResponse<IEnumerable<UserResponseDto>>.Success(userDtos, "Users retrieved successfully", StatusCodes.Status200OK);
             }
-            else
+            catch (Exception ex)
             {
-                var result = await _userManager.DeleteAsync(user);
-                if (result.Succeeded)
-                {
-                    _userRepository.DeleteAsync(user);
-                    await _userRepository.SaveChangesAsync();
-                    return ApiResponse<bool>.Success(true, "User deleted successfully", 200);
-                }
-                else
-                {
-                    var errors = result.Errors.Select(error => error.Description).ToList();
-                    return ApiResponse<bool>.Failed(false, "Failed to delete user", 400, errors);
-                }
+                _logger.LogError($"An error occurred while retrieving users: {ex.Message}");
+                return ApiResponse<IEnumerable<UserResponseDto>>.Failed(false, "An error occurred while retrieving users", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
 
+        public async Task<ApiResponse<bool>> DeleteUserAsync(string id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+            if (user == null)
+            
+                return ApiResponse<bool>.Failed(false, "User not found", StatusCodes.Status404NotFound, new List<string>());
+
+                  _userRepository.DeleteAsync(user);
+               await _userRepository.SaveChangesAsync();
+            return ApiResponse<bool>.Success(true, "User deleted successfully", StatusCodes.Status200OK);            
+        }
     }
 }
