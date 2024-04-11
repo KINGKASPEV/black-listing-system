@@ -39,10 +39,10 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteUser(string userId)
+        [HttpGet("userId")]
+        public async Task<IActionResult> GetUser(string userId)
         {
-            var response = await _userService.DeleteUserAsync(userId);
+            var response = await _userService.GetUserByIdAsync(userId);
             if (response.Succeeded)
             {
                 return Ok(response);
@@ -65,6 +65,17 @@ namespace ISWBlacklist.Controllers
         public async Task<IActionResult> GetAllUsers()
         {
             var response = await _userService.GetAllUsersAsync();
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            var response = await _userService.DeleteUserAsync(userId);
             if (response.Succeeded)
             {
                 return Ok(response);
