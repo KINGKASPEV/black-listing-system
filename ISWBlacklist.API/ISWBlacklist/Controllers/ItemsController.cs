@@ -22,9 +22,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.AddItemAsync(creationDto);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -33,9 +31,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.GetItemByIdAsync(itemId);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -44,9 +40,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.GetAllItemsAsync(page, perPage);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -55,9 +49,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.GetAllItemsAsync();
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -66,9 +58,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.GetNonBlacklistedItemsAsync(page, perPage);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -77,9 +67,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.GetNonBlacklistedItemsAsync();
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -88,9 +76,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.UpdateItemAsync(itemId, updateDto);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -99,9 +85,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _itemService.DeleteItemAsync(itemId);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
     }
