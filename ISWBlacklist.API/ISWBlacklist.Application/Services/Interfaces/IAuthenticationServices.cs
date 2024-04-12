@@ -13,6 +13,7 @@ namespace ISWBlacklist.Application.Services.Interfaces
         Task<ApiResponse<string>> ResetPasswordAsync(string email, string token, string newPassword);
         Task<ApiResponse<string>> ChangePasswordAsync(AppUser user, string currentPassword, string newPassword);
         Task<ApiResponse<string>> SetPasswordAsync(string email, string newPassword, string confirmPassword);
+        Task<bool> DoesEmailExistAsync(string email);
         Task<ApiResponse<string>> LogoutAsync();
     }
 }
