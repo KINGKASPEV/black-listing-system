@@ -211,6 +211,21 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
+        public async Task<bool> DoesEmailExistAsync(string email)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                return user != null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while checking if email exists.");
+                return false;
+            }
+        }
+
+
         public async Task<ApiResponse<string>> LogoutAsync()
         {
             try

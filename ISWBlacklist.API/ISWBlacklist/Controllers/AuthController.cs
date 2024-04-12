@@ -1,4 +1,5 @@
-﻿using ISWBlacklist.Application.DTOs.Auth;
+﻿using Azure;
+using ISWBlacklist.Application.DTOs.Auth;
 using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Domain.Entities;
@@ -84,6 +85,17 @@ namespace ISWBlacklist.Controllers
                 return Ok(response);
             }
             return BadRequest(response);
+        }
+
+        [HttpGet("email-exists")]
+        public async Task<IActionResult> CheckEmailExists(string email)
+        {
+            var exists = await _authenticationService.DoesEmailExistAsync(email);
+            if (exists)
+            {
+                return Ok(true);
+            }
+            return Ok(false);
         }
 
         [HttpPost("logout")]
