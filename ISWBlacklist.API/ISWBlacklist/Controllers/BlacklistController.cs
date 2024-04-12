@@ -60,7 +60,7 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpDelete]
+        [HttpPut]
         public async Task<IActionResult> RemoveBlacklistedItem(string blacklistedItemId, [FromBody] string removalReason)
         {
             var response = await _blacklistService.RemoveBlacklistedItemAsync(blacklistedItemId, removalReason);

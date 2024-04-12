@@ -88,14 +88,25 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpGet("email-exists")]
-        public async Task<IActionResult> CheckEmailExists(string email)
+        public async Task<IActionResult> DoesEmailExists(string email)
         {
-            var exists = await _authenticationService.DoesEmailExistAsync(email);
-            if (exists)
+            var response = await _authenticationService.DoesEmailExistAsync(email);
+            if (response)
             {
                 return Ok(true);
             }
             return Ok(false);
+        }
+
+        [HttpGet("check-email-status")]
+        public async Task<IActionResult> CheckEmailExists(string email)
+        {
+            var response = await _authenticationService.CheckEmailAsync(email);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+            return BadRequest(response);
         }
 
         [HttpPost("logout")]

@@ -225,6 +225,27 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
+        public async Task<ApiResponse<string>> CheckEmailAsync(string email)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)               
+                    return ApiResponse<string>.Failed(false, "Email does not exist", StatusCodes.Status404NotFound, null);
+                
+                var hasPassword = await _userManager.HasPasswordAsync(user);
+                if (hasPassword)
+                
+                    return ApiResponse<string>.Success("Email exists with password", "Email exists with password", StatusCodes.Status200OK);
+
+                return ApiResponse<string>.Success("Email exists without password", "Email exists without password", StatusCodes.Status204NoContent);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while checking email existence and password status.");
+                return ApiResponse<string>.Failed(false, "An error occurred while checking email existence and password status.", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
 
         public async Task<ApiResponse<string>> LogoutAsync()
         {
