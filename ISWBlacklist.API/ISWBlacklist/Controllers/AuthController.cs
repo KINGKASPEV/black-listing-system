@@ -1,9 +1,7 @@
-﻿using Azure;
-using ISWBlacklist.Application.DTOs.Auth;
+﻿using ISWBlacklist.Application.DTOs.Auth;
 using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Domain.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ISWBlacklist.Controllers
@@ -25,9 +23,7 @@ namespace ISWBlacklist.Controllers
             var response = await _authenticationService.RegisterUserAsync(createUserAdminDto);
 
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -37,9 +33,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.LoginAsync(loginDTO);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -48,9 +42,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.ValidateTokenAsync(token);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -59,9 +51,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.ResetPasswordAsync(email, token, newPassword);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -70,9 +60,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.ChangePasswordAsync(user, currentPassword, newPassword);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -81,9 +69,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.SetPasswordAsync(email, newPassword, confirmPassword);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -92,9 +78,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.DoesEmailExistAsync(email);
             if (response)
-            {
-                return Ok(true);
-            }
+                return Ok(true);        
             return Ok(false);
         }
 
@@ -103,9 +87,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.CheckEmailAsync(email);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -114,9 +96,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _authenticationService.LogoutAsync();
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
     }

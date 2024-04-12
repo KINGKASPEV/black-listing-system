@@ -22,9 +22,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.CreateUserAsync(userAdminId, createUserDto);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -33,9 +31,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.UpdateUserAsync(userId, updateUserDto);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -44,9 +40,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.GetUserByIdAsync(userId);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -55,9 +49,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.GetAllUsersAsync(page, perPage);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -66,9 +58,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.GetAllUsersAsync();
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -77,9 +67,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _userService.DeleteUserAsync(userId);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
     }

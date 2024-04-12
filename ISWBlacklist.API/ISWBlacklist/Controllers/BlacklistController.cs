@@ -21,9 +21,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.BlacklistItemAsync(itemId, reason);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -32,9 +30,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.GetBlacklistedItemByIdAsync(id);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -43,9 +39,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.GetBlacklistedItemsAsync(page, perPage);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -54,9 +48,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.GetBlacklistedItemsAsync();
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -65,9 +57,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.RemoveBlacklistedItemAsync(blacklistedItemId, removalReason);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
 
@@ -76,9 +66,7 @@ namespace ISWBlacklist.Controllers
         {
             var response = await _blacklistService.UpdateBlacklistedItemAsync(blacklistedItemId, reason);
             if (response.Succeeded)
-            {
                 return Ok(response);
-            }
             return BadRequest(response);
         }
     }

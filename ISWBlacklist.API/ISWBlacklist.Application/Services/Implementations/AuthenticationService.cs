@@ -99,7 +99,7 @@ namespace ISWBlacklist.Application.Services.Implementations
                         return ApiResponse<LoginResponseDto>.Success(response, "Logged In Successfully", StatusCodes.Status200OK);
 
                     default:
-                        return ApiResponse<LoginResponseDto>.Failed(false, "Login failed. Invalid email or password, go ahead to set your password", StatusCodes.Status401Unauthorized, new List<string>());
+                        return ApiResponse<LoginResponseDto>.Failed(false, "Login failed. Invalid email or password", StatusCodes.Status401Unauthorized, new List<string>());
                 }
             }
             catch (Exception ex)
