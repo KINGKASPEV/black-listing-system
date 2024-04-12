@@ -61,7 +61,7 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> RemoveBlacklistedItem([FromRoute] string blacklistedItemId, [FromBody] string removalReason)
+        public async Task<IActionResult> RemoveBlacklistedItem(string blacklistedItemId, [FromBody] string removalReason)
         {
             var response = await _blacklistService.RemoveBlacklistedItemAsync(blacklistedItemId, removalReason);
             if (response.Succeeded)
@@ -72,7 +72,7 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateBlacklistedItem([FromRoute] string blacklistedItemId, [FromBody] string reason)
+        public async Task<IActionResult> UpdateBlacklistedItem(string blacklistedItemId, [FromBody] string reason)
         {
             var response = await _blacklistService.UpdateBlacklistedItemAsync(blacklistedItemId, reason);
             if (response.Succeeded)
