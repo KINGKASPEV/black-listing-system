@@ -21,17 +21,18 @@ builder.Services.AddSwagger();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ISBWBlacklist v1"));
-}
+//}
 using (var scope = app.Services.CreateScope())
 {
     var serviceProvider = scope.ServiceProvider;
     await Seeder.SeedRolesAndAdmins(serviceProvider);
 }
+app.UseCors(p => p.WithOrigins("https://www.isw-blacklist.xyz","https://isw-blacklist-fe-eta.vercel.app","http://localhost:5173").AllowAnyHeader().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
 
 
 app.UseHttpsRedirection();
