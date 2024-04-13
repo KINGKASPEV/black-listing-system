@@ -39,7 +39,7 @@ namespace ISWBlacklist.Common.Utilities
                 _issuer,
                 _audience,
                 claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddMinutes(50),
                 signingCredentials: creds
             );
 

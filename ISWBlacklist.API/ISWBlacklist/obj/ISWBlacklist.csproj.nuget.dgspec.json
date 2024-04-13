@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj": {}
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj": {}
   },
   "projects": {
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj": {
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj",
         "projectName": "ISWBlacklist.Application",
-        "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj",
-        "packagesPath": "C:\\Users\\I User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\I User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,14 +28,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj"
               },
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
               },
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
               }
             }
           }
@@ -44,11 +44,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -97,40 +92,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj",
         "projectName": "ISWBlacklist.Common",
-        "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj",
-        "packagesPath": "C:\\Users\\I User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\I User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,8 +125,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
               }
             }
           }
@@ -154,11 +135,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -185,40 +161,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj",
         "projectName": "ISWBlacklist.Domain",
-        "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj",
-        "packagesPath": "C:\\Users\\I User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\I User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -238,11 +200,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -265,40 +222,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj",
         "projectName": "ISWBlacklist.Infrastructure",
-        "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\I User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\I User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -312,8 +255,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Domain\\ISWBlacklist.Domain.csproj"
               }
             }
           }
@@ -322,11 +265,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -361,40 +299,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj": {
+    "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj",
         "projectName": "ISWBlacklist",
-        "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj",
-        "packagesPath": "C:\\Users\\I User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\obj\\",
+        "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\ISWBlacklist.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\I User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -408,11 +332,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Application\\ISWBlacklist.Application.csproj"
               },
-              "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\I User\\Desktop\\isw\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
+              "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Infrastructure\\ISWBlacklist.Infrastructure.csproj"
               }
             }
           }
@@ -421,11 +345,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -492,24 +411,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.17, 7.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -518,7 +419,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
