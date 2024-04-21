@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ISWBlacklist.Application.DTOs.Cloudinary;
 using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Common;
@@ -19,14 +20,20 @@ namespace ISWBlacklist.Application.Services.Implementations
         private readonly IMapper _mapper;
         private readonly ILogger<UserService> _logger;
         private readonly IGenericRepository<AppUser> _userRepository;
+        private readonly ICloudinaryServices<AppUser> _cloudinaryServices;
 
-        public UserService(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper, ILogger<UserService> logger, IGenericRepository<AppUser> userRepository)
+        public UserService(UserManager<AppUser> userManager, 
+            RoleManager<IdentityRole> roleManager, 
+            IMapper mapper, ILogger<UserService> logger, 
+            IGenericRepository<AppUser> userRepository,
+            ICloudinaryServices<AppUser> cloudinaryServices)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _mapper = mapper;
             _logger = logger;
             _userRepository = userRepository;
+            _cloudinaryServices = cloudinaryServices;
         }
 
         public async Task<ApiResponse<UserResponseDto>> CreateUserAsync(string userAdminId, CreateUserDto createUserDto)
@@ -194,5 +201,47 @@ namespace ISWBlacklist.Application.Services.Implementations
                await _userRepository.SaveChangesAsync();
             return ApiResponse<bool>.Success(true, "User deleted successfully", StatusCodes.Status200OK);            
         }
+
+        //public async Task<CloudinaryUploadResponse> UpdateUserPhotoByUserId(string id, UpdatePhotoDTO model)
+        //{
+        //    try
+        //    {
+        //        var user = await _userRepository.GetByIdAsync(id);
+
+        //        if (user == null)
+        //            throw new Exception("User not found");
+
+        //        var file = model.PhotoFile;
+
+        //        if (file == null || file.Length <= 0)
+        //            throw new Exception("Invalid file size");
+
+        //        // Upload the image to Cloudinary
+        //        var cloudinaryResponse = await _cloudinaryServices.UploadImage(id, file);
+
+        //        if (cloudinaryResponse == null)
+        //        {
+        //            _logger.LogError($"Failed to upload image for user with ID {id}.");
+        //            throw new Exception("Failed to upload image to Cloudinary");
+        //        }
+
+        //        // Update the ImageUrl property with the Cloudinary URL
+        //        user.ImageUrl = cloudinaryResponse.Url;
+
+        //        // Update the user entity in the repository
+        //        _userRepository.Update(user);
+
+        //        // Save changes to the database
+        //        await _userRepository.SaveChangesAsync();
+
+        //        return cloudinaryResponse;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "An error occurred while updating user photo.");
+        //        throw;
+        //    }
+        //}
+
     }
 }

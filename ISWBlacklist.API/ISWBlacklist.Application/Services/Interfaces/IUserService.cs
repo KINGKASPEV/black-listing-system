@@ -1,4 +1,5 @@
-﻿using ISWBlacklist.Application.DTOs.User;
+﻿using ISWBlacklist.Application.DTOs.Cloudinary;
+using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Common.Utilities;
 using ISWBlacklist.Domain;
 
@@ -12,5 +13,6 @@ namespace ISWBlacklist.Application.Services.Interfaces
         Task<ApiResponse<PageResult<IEnumerable<UserResponseDto>>>> GetAllUsersAsync(int perPage, int page);
         Task<ApiResponse<IEnumerable<UserResponseDto>>> GetAllUsersAsync();
         Task<ApiResponse<bool>> DeleteUserAsync(string id);
+        //Task<CloudinaryUploadResponse> UpdateUserPhotoByUserId(string id, UpdatePhotoDTO model);
     }
 }

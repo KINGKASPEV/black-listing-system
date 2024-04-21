@@ -1,4 +1,6 @@
-﻿using ISWBlacklist.Application.DTOs.Item;
+﻿using ISWBlacklist.Application.DTOs.Cloudinary;
+using ISWBlacklist.Application.DTOs.Item;
+using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Common.Utilities;
 using ISWBlacklist.Domain;
 
@@ -14,5 +16,7 @@ namespace ISWBlacklist.Application.Services.Interfaces
         Task<ApiResponse<IEnumerable<ItemResponseDto>>> GetAllItemsAsync();
         Task<ApiResponse<string>> UpdateItemAsync(string itemId, ItemUpdateDto updateDto);
         Task<ApiResponse<string>> DeleteItemAsync(string itemId);
+        Task<CloudinaryUploadResponse> UpdatePhoto(UpdatePhotoDTO model);
+        Task<ApiResponse<IEnumerable<string>>> GetCategoriesAsync();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ISWBlacklist.Application.DTOs.Item;
+using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -84,6 +85,30 @@ namespace ISWBlacklist.Controllers
         public async Task<IActionResult> DeleteItem(string itemId)
         {
             var response = await _itemService.DeleteItemAsync(itemId);
+            if (response.Succeeded)
+                return Ok(response);
+            return BadRequest(response);
+        }
+
+        [HttpPut("photo")]
+        public async Task<IActionResult> UpdateItemPhoto(IFormFile photo)
+        {
+            try
+            {
+                var updatePhotoDto = new UpdatePhotoDTO { PhotoFile = photo };
+                var response = await _itemService.UpdatePhoto(updatePhotoDto);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating user photo.");
+            }
+        }
+
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetCategories()
+        {
+            var response = await _itemService.GetCategoriesAsync();
             if (response.Succeeded)
                 return Ok(response);
             return BadRequest(response);
