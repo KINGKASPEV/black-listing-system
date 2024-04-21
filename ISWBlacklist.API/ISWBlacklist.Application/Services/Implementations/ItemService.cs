@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using ISWBlacklist.Application.DTOs.Cloudinary;
 using ISWBlacklist.Application.DTOs.Item;
+using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
 using ISWBlacklist.Common;
 using ISWBlacklist.Common.Utilities;
@@ -16,12 +18,14 @@ namespace ISWBlacklist.Application.Services.Implementations
         private readonly IGenericRepository<Item> _itemRepository;
         private readonly ILogger<ItemService> _logger;
         private readonly IMapper _mapper;
+        private readonly ICloudinaryServices<Item> _cloudinaryServices;
 
-        public ItemService(IGenericRepository<Item> itemRepository, ILogger<ItemService> logger, IMapper mapper)
+        public ItemService(IGenericRepository<Item> itemRepository, ILogger<ItemService> logger, IMapper mapper, ICloudinaryServices<Item> cloudinaryServices)
         {
             _itemRepository = itemRepository;
             _logger = logger;
             _mapper = mapper;
+            _cloudinaryServices = cloudinaryServices;
         }
 
         public async Task<ApiResponse<ItemResponseDto>> AddItemAsync(ItemCreationDto creationDto)
@@ -81,7 +85,7 @@ namespace ISWBlacklist.Application.Services.Implementations
                 return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Success(paginatedItems, "Items retrieved successfully", StatusCodes.Status200OK);
             }
             catch (Exception ex)
-        {
+            {
                 _logger.LogError($"An error occurred while retrieving items: {ex.Message}");
                 return ApiResponse<PageResult<IEnumerable<ItemResponseDto>>>.Failed(false, "An error occurred while retrieving items", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
@@ -187,6 +191,88 @@ namespace ISWBlacklist.Application.Services.Implementations
             {
                 _logger.LogError($"An error occurred while deleting item: {ex.Message}");
                 return ApiResponse<string>.Failed(false, "An error occurred while deleting item", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
+            }
+        }
+
+        public async Task<CloudinaryUploadResponse> UpdatePhoto(UpdatePhotoDTO model)
+        {
+            try
+            {
+                var cloudinaryResponse = await _cloudinaryServices.UploadImage(model.PhotoFile);
+
+                if (cloudinaryResponse == null)
+                {
+                    _logger.LogError("Cloudinary upload failed.");
+                    return new CloudinaryUploadResponse { Url = "Default URL or null" };
+                }
+
+                var response = new CloudinaryUploadResponse
+                {
+                    Url = cloudinaryResponse.Url
+                };
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating item photo.");
+                throw;
+            }
+        }
+
+        //public async Task<CloudinaryUploadResponse> UpdateItemPhotoByUserId(string id, UpdatePhotoDTO model)
+        //{
+        //    try
+        //    {
+        //        var item = await _itemRepository.GetByIdAsync(id);
+
+        //        if (item == null)
+        //            throw new Exception("Item not found");
+
+        //        var file = model.PhotoFile;
+
+        //        if (file == null || file.Length <= 0)
+        //            throw new Exception("Invalid file size");
+
+        //        var cloudinaryResponse = await _cloudinaryServices.UploadImage(id, file);
+
+        //        if (cloudinaryResponse == null)
+        //        {
+        //            _logger.LogError($"Failed to upload image for user with ID {id}.");
+        //            throw new Exception("Failed to upload image to Cloudinary");
+        //        }
+
+        //        item.ImageUrl = cloudinaryResponse.Url;
+
+        //        _itemRepository.Update(item);
+
+        //        await _itemRepository.SaveChangesAsync();
+
+        //        return cloudinaryResponse;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "An error occurred while updating item photo.");
+        //        throw;
+        //    }
+        //}
+
+        public async Task<ApiResponse<IEnumerable<string>>> GetCategoriesAsync()
+        {
+            try
+            {
+                var items = await _itemRepository.GetAllAsync();
+                var categories = items
+                    .GroupBy(item => item.Category)
+                    .Select(group => group.Key)
+                    .ToList();
+
+                return ApiResponse<IEnumerable<string>>.Success(categories, "Categories retrieved successfully", StatusCodes.Status200OK);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while retrieving categories: {ex.Message}");
+                return ApiResponse<IEnumerable<string>>.Failed(false, "An error occurred while retrieving categories", StatusCodes.Status500InternalServerError, new List<string> { ex.Message });
             }
         }
     }

@@ -1,5 +1,7 @@
-﻿using ISWBlacklist.Application.DTOs.User;
+﻿using Azure;
+using ISWBlacklist.Application.DTOs.User;
 using ISWBlacklist.Application.Services.Interfaces;
+using ISWBlacklist.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +13,12 @@ namespace ISWBlacklist.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly ICloudinaryServices<AppUser> _cloudinaryServices;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, ICloudinaryServices<AppUser> cloudinaryServices)
         {
             _userService = userService;
+            _cloudinaryServices = cloudinaryServices;
         }
 
         [HttpPost]
@@ -35,7 +39,7 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpGet("userId")]
+        [HttpGet("{userId}")]
         public async Task<IActionResult> GetUser(string userId)
         {
             var response = await _userService.GetUserByIdAsync(userId);
@@ -62,7 +66,7 @@ namespace ISWBlacklist.Controllers
             return BadRequest(response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{userId}")]
         public async Task<IActionResult> DeleteUser(string userId)
         {
             var response = await _userService.DeleteUserAsync(userId);
@@ -70,5 +74,20 @@ namespace ISWBlacklist.Controllers
                 return Ok(response);
             return BadRequest(response);
         }
+
+        //[HttpPut("{userId}/photo")]
+        //public async Task<IActionResult> UpdateUserPhoto(string userId, IFormFile photo)
+        //{
+        //    try
+        //    {
+        //        var updatePhotoDto = new UpdatePhotoDTO { PhotoFile = photo };
+        //        var response = await _userService.UpdateUserPhotoByUserId(userId, updatePhotoDto);
+        //        return Ok(response);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating user photo.");
+        //    }
+        //}
     }
 }
