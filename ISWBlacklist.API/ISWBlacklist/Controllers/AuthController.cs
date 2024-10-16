@@ -56,9 +56,9 @@ namespace ISWBlacklist.Controllers
         }
 
         [HttpPost("change-password")]
-        public async Task<IActionResult> ChangePassword(AppUser user, string currentPassword, string newPassword)
+        public async Task<IActionResult> ChangePassword(string userId, string currentPassword, string newPassword)
         {
-            var response = await _authenticationService.ChangePasswordAsync(user, currentPassword, newPassword);
+            var response = await _authenticationService.ChangePasswordAsync(userId, currentPassword, newPassword);
             if (response.Succeeded)
                 return Ok(response);
             return BadRequest(response);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SoTGAPETlvwZgTbpmF/spccGTW9PzkEpMDeVOQhzG5DiVe9tq+WEaGTS85zhbf5tn5Av8rd31V6RakLMUHl7tA==",
+  "dgSpecHash": "fcU2V6AVM2GO2qs/VbR8lQLFAMJ7vSW7ITfzOOte/SOvVDqVIo7sfXE3EKnWuuQ1qMqz6NeAX2Kz6pNwCnzVrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\Interswitch\\black-listing-system\\ISWBlacklist.API\\ISWBlacklist.Common\\ISWBlacklist.Common.csproj",
   "expectedPackageFiles": [
@@ -22,11 +22,11 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.1\\microsoft.identitymodel.abstractions.7.0.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.0.1\\microsoft.identitymodel.jsonwebtokens.7.0.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.1\\microsoft.identitymodel.logging.7.0.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.0.1\\microsoft.identitymodel.tokens.7.0.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.0.1\\system.identitymodel.tokens.jwt.7.0.1.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.7.1\\microsoft.identitymodel.abstractions.7.7.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.7.1\\microsoft.identitymodel.jsonwebtokens.7.7.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.logging\\7.7.1\\microsoft.identitymodel.logging.7.7.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.7.1\\microsoft.identitymodel.tokens.7.7.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.7.1\\system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512"
   ],
   "logs": []
 }

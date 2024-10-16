@@ -4,6 +4,10 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cc543599-e8c2-41d4-a6fc-0a23e5bb4ab5</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
+    <EnableSdkContainerDebugging>True</EnableSdkContainerDebugging>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +23,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
@@ -29,6 +34,13 @@
   <ItemGroup>
     <ProjectReference Include="..\ISWBlacklist.Application\ISWBlacklist.Application.csproj" />
     <ProjectReference Include="..\ISWBlacklist.Infrastructure\ISWBlacklist.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContainerEnvironmentVariable Include="ASPNETCORE_HTTPS_PORTS">
+      <Value>443</Value>
+    </ContainerEnvironmentVariable>
+    <ContainerPort Include="443" />
   </ItemGroup>
 
 </Project>
