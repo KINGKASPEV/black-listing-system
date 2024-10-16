@@ -30,7 +30,8 @@ C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlack
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.AssemblyInfo.cs
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.csproj.CopyComplete
+C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.sourcelink.json
+C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlack.5C346FA8.Up2Date
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.dll
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\refint\ISWBlacklist.Application.dll
 C:\Users\user\Desktop\Interswitch\black-listing-system\ISWBlacklist.API\ISWBlacklist.Application\obj\Debug\net7.0\ISWBlacklist.Application.pdb

@@ -202,46 +202,46 @@ namespace ISWBlacklist.Application.Services.Implementations
             return ApiResponse<bool>.Success(true, "User deleted successfully", StatusCodes.Status200OK);            
         }
 
-        //public async Task<CloudinaryUploadResponse> UpdateUserPhotoByUserId(string id, UpdatePhotoDTO model)
-        //{
-        //    try
-        //    {
-        //        var user = await _userRepository.GetByIdAsync(id);
+        public async Task<CloudinaryUploadResponse> UpdateUserPhotoByUserId(string id, UpdatePhotoDTO model)
+        {
+            try
+            {
+                var user = await _userRepository.GetByIdAsync(id);
 
-        //        if (user == null)
-        //            throw new Exception("User not found");
+                if (user == null)
+                    throw new Exception("User not found");
 
-        //        var file = model.PhotoFile;
+                var file = model.PhotoFile;
 
-        //        if (file == null || file.Length <= 0)
-        //            throw new Exception("Invalid file size");
+                if (file == null || file.Length <= 0)
+                    throw new Exception("Invalid file size");
 
-        //        // Upload the image to Cloudinary
-        //        var cloudinaryResponse = await _cloudinaryServices.UploadImage(id, file);
+                // Upload the image to Cloudinary
+                var cloudinaryResponse = await _cloudinaryServices.UploadImageAsync(id, file);
 
-        //        if (cloudinaryResponse == null)
-        //        {
-        //            _logger.LogError($"Failed to upload image for user with ID {id}.");
-        //            throw new Exception("Failed to upload image to Cloudinary");
-        //        }
+                if (cloudinaryResponse == null)
+                {
+                    _logger.LogError($"Failed to upload image for user with ID {id}.");
+                    throw new Exception("Failed to upload image to Cloudinary");
+                }
 
-        //        // Update the ImageUrl property with the Cloudinary URL
-        //        user.ImageUrl = cloudinaryResponse.Url;
+                // Update the ImageUrl property with the Cloudinary URL
+                user.ImageUrl = cloudinaryResponse.Url;
 
-        //        // Update the user entity in the repository
-        //        _userRepository.Update(user);
+                // Update the user entity in the repository
+                _userRepository.Update(user);
 
-        //        // Save changes to the database
-        //        await _userRepository.SaveChangesAsync();
+                // Save changes to the database
+                await _userRepository.SaveChangesAsync();
 
-        //        return cloudinaryResponse;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError(ex, "An error occurred while updating user photo.");
-        //        throw;
-        //    }
-        //}
+                return cloudinaryResponse;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating user photo.");
+                throw;
+            }
+        }
 
     }
 }

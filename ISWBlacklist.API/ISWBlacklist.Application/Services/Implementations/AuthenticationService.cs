@@ -168,24 +168,35 @@ namespace ISWBlacklist.Application.Services.Implementations
             }
         }
 
-        public async Task<ApiResponse<string>> ChangePasswordAsync(AppUser user, string currentPassword, string newPassword)
-        {
-            try
-            {
-                var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+		public async Task<ApiResponse<string>> ChangePasswordAsync(string userId, string currentPassword, string newPassword)
+		{
+			try
+			{
+				var user = await _userManager.FindByIdAsync(userId);
+				if (user == null)
+				{
+					return new ApiResponse<string>(false, "User not found.", StatusCodes.Status404NotFound, null, new List<string>());
+				}
 
-                if (result.Succeeded)
-                    return new ApiResponse<string>(true, "Password changed successfully.", StatusCodes.Status200OK, null, new List<string>());
-                return new ApiResponse<string>(false, "Password change failed.", StatusCodes.Status400BadRequest, null, result.Errors.Select(error => error.Description).ToList());
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while changing password");
-                return new ApiResponse<string>(true, "Error occurred while changing password", StatusCodes.Status500InternalServerError, null, new List<string>() { ex.Message });
-            }
-        }
+				var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
 
-        public async Task<ApiResponse<string>> SetPasswordAsync(string email, string newPassword, string confirmPassword)
+				if (result.Succeeded)
+				{
+					return new ApiResponse<string>(true, "Password changed successfully.", StatusCodes.Status200OK, null, new List<string>());
+				}
+
+				var errors = result.Errors.Select(error => error.Description).ToList();
+				return new ApiResponse<string>(false, "Password change failed.", StatusCodes.Status400BadRequest, null, errors);
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError(ex, $"Error occurred while changing password for user {userId}");
+				return new ApiResponse<string>(false, "An error occurred while changing the password.", StatusCodes.Status500InternalServerError, null, new List<string> { ex.Message });
+			}
+		}
+
+
+		public async Task<ApiResponse<string>> SetPasswordAsync(string email, string newPassword, string confirmPassword)
         {
             try
             {

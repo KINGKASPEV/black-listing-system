@@ -52,21 +52,21 @@ namespace ISWBlacklist.Application.Services.Implementations
         }
 
 
-        //public async Task<CloudinaryUploadResponse> UploadImage(string entityId, IFormFile file)
-        //{
-        //    var uploadParams = new ImageUploadParams
-        //    {
-        //        File = new FileDescription(file.FileName, file.OpenReadStream())
-        //    };
+        public async Task<CloudinaryUploadResponse> UploadImageAsync(string entityId, IFormFile file)
+        {
+            var uploadParams = new ImageUploadParams
+            {
+                File = new FileDescription(file.FileName, file.OpenReadStream())
+            };
 
-        //    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
-        //    var response = new CloudinaryUploadResponse
-        //    {
-        //        PublicId = uploadResult.PublicId,
-        //        Url = uploadResult.SecureUrl.AbsoluteUri.ToString(),
-        //        EntityId = entityId
-        //    };
-        //    return response;
-        //}
+            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+            var response = new CloudinaryUploadResponse
+            {
+                PublicId = uploadResult.PublicId,
+                Url = uploadResult.SecureUrl.AbsoluteUri.ToString(),
+                EntityId = entityId
+            };
+            return response;
+        }
     }
 }
